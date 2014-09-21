@@ -1,0 +1,21 @@
+#!/bin/bash
+
+git init
+git clone $1
+
+cd projectos
+rm index.php
+cd
+cp -r websitedirectory/* projectos
+cd projectos
+
+echo '<?php
+define("DB_HOST", "'$2'");
+define("DB_BDD", "'$3'");
+define("DB_LOGIN", "'$4'");
+define("DB_PASS", "'$5'");
+?>' > bddparam.php
+
+git add -A :/
+git commit -m "deploiment du site"
+git push 

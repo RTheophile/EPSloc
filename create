@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+#ruby setup 
+sudo apt-get install rubygems-integration
+
+#git setup
+sudo apt-get install git
+
+#Openshift setup
+sudo gem install rhc
+
+#connect to a git (user: theophile.ravillion@gmail.com mdp: IsepIsep)
+rhc setup
+
+#Creation d'une application PHP avec cartridge mysql et phpmyadmin 
+rhc app create -a projectos -t php-5.4 -t mysql-5.5 -t phpmyadmin
+rhc sshkey add cat ~/.ssh/id_rsa.pub
+
+
